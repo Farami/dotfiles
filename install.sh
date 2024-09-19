@@ -79,10 +79,12 @@ brew install --cask vlc
 brew install --cask microsoft-office
 brew install --cask microsoft-teams
 brew install --cask obsidian
+brew install --cask fantastical
 
 ### Nice to have
 brew install --cask raycast
 brew install --cask spotify
+brew install --cask setapp
 
 ### Fonts
 brew install --cask sf-symbols
@@ -98,39 +100,39 @@ mas install 497799835  #xCode
 
 # macOS Settings
 echo "Changing macOS defaults..."
-defaults write com.apple.spaces spans-displays -bool false
-defaults write com.apple.dock autohide -bool true
-defaults write com.apple.dock "mru-spaces" -bool "false"
-defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
-defaults write com.apple.LaunchServices LSQuarantine -bool false
-defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
-defaults write NSGlobalDomain KeyRepeat -int 1
-defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
-defaults write NSGlobalDomain AppleShowAllExtensions -bool true
-defaults write NSGlobalDomain _HIHideMenuBar -bool true
-defaults write com.apple.finder DisableAllAnimations -bool true
-defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool false
-defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
-defaults write com.apple.finder ShowMountedServersOnDesktop -bool false
-defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool false
-defaults write com.apple.Finder AppleShowAllFiles -bool true
-defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
-defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
-defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
-defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
-defaults write com.apple.finder ShowStatusBar -bool false
-defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool YES
-defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
-defaults write com.apple.Safari IncludeDevelopMenu -bool true
-defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
-defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
-defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
-defaults write -g NSWindowShouldDragOnGesture YES
+defaults write com.apple.spaces spans-displays -bool false # Disable spanning spaces across displays
+defaults write com.apple.dock autohide -bool true # Enable auto-hide for Dock
+defaults write com.apple.dock "mru-spaces" -bool false # Disable rearranging spaces based on recent use
+defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false # Disable window animations
+defaults write com.apple.LaunchServices LSQuarantine -bool false # Disable Launch Services quarantine
+defaults write NSGlobalDomain KeyRepeat -int 1 # Set key repeat rate to fastest
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false # Disable automatic spelling correction
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true # Show all file extensions in Finder
+defaults write NSGlobalDomain _HIHideMenuBar -bool true # Enable auto-hide for the menu bar
+defaults write com.apple.finder DisableAllAnimations -bool true # Disable all Finder animations
+defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool false # Hide external hard drives on desktop
+defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false # Hide internal hard drives on desktop
+defaults write com.apple.finder ShowMountedServersOnDesktop -bool false # Hide mounted servers on desktop
+defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool false # Hide removable media on desktop
+defaults write com.apple.Finder AppleShowAllFiles -bool true # Show all hidden files in Finder
+defaults write com.apple.finder FXDefaultSearchScope -string "SCcf" # Set Finder search scope to current folder
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false # Disable extension change warnings in Finder
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true # Show POSIX path in Finder window title
+defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv" # Set Finder view style to list view
+defaults write com.apple.finder ShowStatusBar -bool false # Hide Finder status bar
+defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool YES # Disable Time Machine backup prompts for new disks
+defaults write com.apple.Safari AutoOpenSafeDownloads -bool false # Disable auto-opening of safe downloads in Safari
+defaults write com.apple.Safari IncludeDevelopMenu -bool true # Enable Develop menu in Safari
+defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true # Enable WebKit developer extras in Safari
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true # Enable WebKit2 developer extras in Safari
+defaults write NSGlobalDomain WebKitDeveloperExtras -bool true # Enable WebKit developer extras globally
+defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false # Do not include names in Mail address pasteboard
+defaults write -g NSWindowShouldDragOnGesture YES # Enable window dragging with gestures
+
 
 # Copying and checking out configuration files
 echo "Planting Configuration Files..."
-[ ! -d "$HOME/.config/dotfiles" ] && git clone --bare https://github.com/Farami/config.git $HOME/.config/dotfiles
+[ ! -d "$HOME/.config/dotfiles" ] && git clone --bare https://github.com/Farami/dotfiles.git $HOME/.config/dotfiles
 git --git-dir=$HOME/.config/dotfiles/ --work-tree=$HOME/.config checkout master
 
 # Installing Fonts
