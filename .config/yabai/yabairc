@@ -1,0 +1,88 @@
+declare -A gaps
+
+gaps["outer"]="4"
+gaps["inner"]="4"
+
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
+
+# bsp, stack or float
+yabai -m config layout bsp
+
+# padding
+yabai -m config top_padding "${gaps["outer"]}"
+yabai -m config bottom_padding "${gaps["outer"]}"
+yabai -m config left_padding "${gaps["outer"]}"
+yabai -m config right_padding "${gaps["outer"]}"
+yabai -m config window_gap "${gaps["inner"]}"
+
+# global settings
+yabai -m config mouse_follows_focus          off
+yabai -m config focus_follows_mouse          off
+yabai -m config window_placement             second_child
+yabai -m config window_topmost               off
+yabai -m config window_opacity               off
+yabai -m config window_opacity_duration      0.0
+yabai -m config window_shadow                on
+yabai -m config window_border                off
+yabai -m config window_border_placement      inset
+yabai -m config window_border_width          4
+yabai -m config window_border_radius         -1.0
+yabai -m config active_window_border_topmost off
+yabai -m config active_window_border_color   0xff775759
+yabai -m config normal_window_border_color   0xff505050
+yabai -m config insert_window_border_color   0xffd75f5f
+yabai -m config active_window_opacity        1.0
+yabai -m config normal_window_opacity        0.9
+yabai -m config split_ratio                  0.50
+yabai -m config auto_balance                 on
+yabai -m config mouse_modifier               alt
+yabai -m config mouse_action1                move
+yabai -m config mouse_action2                resize
+
+
+# Disable specific apps
+yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^Calculator$" manage=off
+yabai -m rule --add app="^Bartender$" manage=off
+yabai -m rule --add app="^Simulator$" manage=off
+yabai -m rule --add app="^1Password$" manage=off
+yabai -m rule --add app="^CleanMyMac" manage=off
+yabai -m rule --add app="^Finder$" manage=off
+yabai -m rule --add app="^Archiver$" manage=off
+yabai -m rule --add app="^UTM$" manage=off
+yabai -m rule --add app="^Now Playing$" manage=off
+yabai -m rule --add title="^Microsoft Teams Notification$" manage=off
+
+# broken...
+yabai -m rule --add app="^Fork$" manage=off
+
+# turn off for outlooks reminder notification window
+#yabai -m rule --add app="^\d+? Reminders$" manage=off
+
+# sketchybar setup
+yabai -m config external_bar               all:40:0       \
+                mouse_follows_focus        off            \
+                focus_follows_mouse        off            \
+                window_zoom_persist        off            \
+                window_placement           second_child   \
+                window_shadow              float          \
+                window_opacity             on             \
+                window_opacity_duration    0.2            \
+                active_window_opacity      1.0            \
+                normal_window_opacity      0.8            \
+                window_animation_duration  0.5            \
+                window_animation_easing    ease_out_quint \
+                insert_feedback_color      0xff9dd274     \
+                split_ratio                0.50           \
+                auto_balance               off            \
+                mouse_modifier             fn             \
+                mouse_action1              move           \
+                mouse_action2              resize         \
+                mouse_drop_action          swap           \
+                                                          \
+                top_padding                8              \
+                bottom_padding             8              \
+                left_padding               8              \
+                right_padding              8              \
+                window_gap                 10
