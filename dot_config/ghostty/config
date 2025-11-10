@@ -1,0 +1,37 @@
+theme = Catppuccin Mocha
+font-feature = +liga
+font-family = "JetBrains Mono"
+font-size = 15
+
+mouse-hide-while-typing = true
+
+mouse-scroll-multiplier = 0.5
+
+shell-integration = fish
+clipboard-read = allow
+clipboard-write = allow
+window-theme = dark
+
+window-decoration = true
+window-padding-x = 8
+window-padding-y = 8
+
+
+macos-titlebar-style = transparent
+macos-option-as-alt = left
+
+# Unbind CMD+... keys so they will be forwarded to Zellij
+keybind = clear
+#keybind = cmd+t=unbind
+
+#keybind = cmd+n=unbind
+#keybind = cmd+c=unbind
+#keybind = cmd+w=unbind
+#keybind = cmd+opt+left=unbind
+#keybind = cmd+opt+right=unbind
+
+keybind = cmd+v=paste_from_clipboard
+
+keybind = global:cmd+1=toggle_visibility
+keybind = global:cmd+2=toggle_quick_terminal
+

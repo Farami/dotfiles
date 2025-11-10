@@ -1,0 +1,9 @@
+[tools]
+bun = "latest"
+java = "openjdk-21"
+node = "latest"
+python = "latest"
+yarn = "latest"
+
+[settings]
+idiomatic_version_file_enable_tools = ["java"]

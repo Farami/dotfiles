@@ -1,0 +1,76 @@
+# Load scripting addition
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
+
+# Window config
+yabai -m config window_zoom_persist off
+yabai -m config window_placement second_child
+yabai -m config window_shadow float
+yabai -m config window_opacity on
+yabai -m config active_window_opacity 1.0
+yabai -m config normal_window_opacity 0.95
+yabai -m config window_animation_duration 0.15
+yabai -m config window_animation_easing ease_out_quint
+
+# Mouse config
+yabai -m config mouse_follows_focus off
+yabai -m config focus_follows_mouse off
+yabai -m config mouse_modifier alt
+yabai -m config mouse_action1 move
+yabai -m config mouse_action2 resize
+yabai -m config mouse_drop_action swap
+
+# General config
+yabai -m config insert_feedback_color 0xff9dd274
+yabai -m config split_ratio 0.50
+yabai -m config auto_balance off
+
+# Padding and gaps
+yabai -m config top_padding 8
+yabai -m config bottom_padding 8
+yabai -m config left_padding 8
+yabai -m config right_padding 8
+yabai -m config window_gap 10
+# yabai -m config external_bar all:40:0
+
+# bsp, stack or float
+yabai -m config layout bsp
+
+# Application rules
+yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^Calculator$" manage=off
+yabai -m rule --add app="^Bartender$" manage=off
+yabai -m rule --add app="^1Password$" manage=off
+yabai -m rule --add app="^CleanMyMac" manage=off
+yabai -m rule --add app="^Finder$" manage=off
+yabai -m rule --add app="^Archiver$" manage=off
+yabai -m rule --add app="^UTM$" manage=off
+yabai -m rule --add app="^Now Playing$" manage=off
+yabai -m rule --add title="^Microsoft Teams Notification$" manage=off
+yabai -m rule --add app="^Marta$" manage=off
+yabai -m rule --add app="^Simulator$" manage=off
+yabai -m rule --add app="^qemu-system-aarch64$" manage=off
+
+# broken...
+yabai -m rule --add app="^TablePlus$" manage=off
+yabai -m rule --add app="^Fork$" manage=off
+
+yabai -m rule --add app="^PoE2$" manage=off
+yabai -m rule --add app="^Path of Exile 2$" manage=off
+
+# turn off for outlooks reminder notification window
+#yabai -m rule --add app="^\d+? Reminders$" manage=off
+
+# Sketchybar signals
+yabai -m signal --add event=window_created label="sketchybar_window_update" action="sketchybar -m --trigger window_change &> /dev/null"
+yabai -m signal --add event=window_destroyed label="sketchybar_window_update" action="sketchybar -m --trigger window_change &> /dev/null"
+
+# Start borders
+borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0 &
+
+# Ultrawide setup
+#yabai -m signal --add event=window_created action="~/.config/yabai/three-columns.sh"
+#yabai -m signal --add event=window_destroyed action="~/.config/yabai/three-columns.sh"
+#yabai -m signal --add event=application_launched action="~/.config/yabai/three-columns.sh"
+#yabai -m signal --add event=application_terminated action="~/.config/yabai/three-columns.sh"
+
