@@ -28,14 +28,12 @@ end
 
 set -x NDK_HOME /Users/work/Library/Android/sdk/ndk/25.1.8937393/
 
-
 # Mac specific aliases
 if type -q eza
-    alias ls "eza -F --icons"
-    alias la "eza -a --icons"
-    alias ll "eza -l --icons --git"
-    alias lla "eza -la --icons --git"
-    alias lsa "eza -aa --icons"
+    alias ls "eza -lh --group-directories-first --icons=auto --git"
+    alias lsa "ls -a"
+    alias lt "eza --tree --level=2 --long --icons --git"
+    alias lta "lt -a"
 end
 
 if type -q chezmoi
