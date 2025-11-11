@@ -19,8 +19,6 @@ if status is-interactive
         eval (zellij setup --generate-auto-start fish | string collect)
     end
 
-    #fish_vi_key_bindings
-
     set -Ux CARAPACE_BRIDGES 'zsh,fish,bash,inshellisense' # optional
     atuin init fish | source
     starship init fish | source
@@ -30,16 +28,8 @@ end
 
 set -x NDK_HOME /Users/work/Library/Android/sdk/ndk/25.1.8937393/
 
-# Disable Homebrew environment hints
-set -gx HOMEBREW_NO_ENV_HINTS 1
 
 # Mac specific aliases
-#alias ls "ls -p -G"
-#alias la "ls -A"
-#alias ll "ls -l"
-#alias lla "ll -A"
-#alias lsa "ls -a"
-
 if type -q eza
     alias ls "eza -F --icons"
     alias la "eza -a --icons"
@@ -52,8 +42,13 @@ if type -q chezmoi
     alias cz chezmoi
 end
 
-alias b brew
-alias bu "brew upgrade"
+if type -q brew
+    # Disable Homebrew environment hints
+    set -gx HOMEBREW_NO_ENV_HINTS 1
+
+    alias b brew
+    alias bu "brew upgrade"
+end
 
 alias tpa "cd ~/Sources/TrackPilotAdminN/TrackPilotAdminN/"
 alias tpw "cd ~/Sources/TrackPilotN/"
