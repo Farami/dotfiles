@@ -1,8 +1,3 @@
-if type -q exa
-    alias ll "exa -l -g --icons"
-    alias lla "ll -a"
-end
-
 # Unset the default fish greeting text which messes up Zellij
 function fish_greeting
     if command -v fastfetch >/dev/null 2>&1
@@ -45,11 +40,17 @@ set -gx HOMEBREW_NO_ENV_HINTS 1
 #alias lla "ll -A"
 #alias lsa "ls -a"
 
-alias ls "eza -F --icons"
-alias la "eza -a --icons"
-alias ll "eza -l --icons --git"
-alias lla "eza -la --icons --git"
-alias lsa "eza -aa --icons"
+if type -q eza
+    alias ls "eza -F --icons"
+    alias la "eza -a --icons"
+    alias ll "eza -l --icons --git"
+    alias lla "eza -la --icons --git"
+    alias lsa "eza -aa --icons"
+end
+
+if type -q chezmoi
+    alias cz chezmoi
+end
 
 alias b brew
 alias bu "brew upgrade"
