@@ -22,61 +22,84 @@ fi
 echo "🔄 Updating Homebrew..."
 brew update
 
+# Helper functions to install packages only if missing
+install_brew_formula() {
+    local package_name="$1"
+
+    if brew list --formula "$package_name" &> /dev/null; then
+        echo "✅ $package_name is already installed (formula)"
+    else
+        echo "📦 Installing $package_name (formula)..."
+        brew install "$package_name"
+    fi
+}
+
+install_brew_cask() {
+    local cask_name="$1"
+
+    if brew list --cask "$cask_name" &> /dev/null; then
+        echo "✅ $cask_name is already installed (cask)"
+    else
+        echo "📦 Installing $cask_name (cask)..."
+        brew install --cask "$cask_name"
+    fi
+}
+
 # Core tools
 echo "📦 Installing core command-line tools..."
-brew install fish              # Shell
-brew install chezmoi          # Dotfile manager
-brew install mise             # Version manager (replaces asdf)
-brew install starship         # Shell prompt
-brew install atuin            # Shell history
+install_brew_formula "fish"              # Shell
+install_brew_formula "chezmoi"          # Dotfile manager
+install_brew_formula "mise"             # Version manager (replaces asdf)
+install_brew_formula "starship"         # Shell prompt
+install_brew_formula "atuin"            # Shell history
 
 # Terminal multiplexers and utilities
 echo "📦 Installing terminal tools..."
-brew install zellij           # Terminal multiplexer
+install_brew_formula "zellij"           # Terminal multiplexer
 
 # Text editors and development
 echo "📦 Installing editors and dev tools..."
-brew install neovim           # Text editor
-brew install lazygit          # Git TUI
+install_brew_formula "neovim"           # Text editor
+install_brew_formula "lazygit"          # Git TUI
 
 # Modern CLI replacements
 echo "📦 Installing modern CLI tools..."
-brew install eza              # Modern ls replacement
-brew install zoxide           # Smart cd
-brew install bat              # Better cat
-brew install ripgrep          # Better grep
-brew install fd               # Better find
-brew install fzf              # Fuzzy finder
+install_brew_formula "eza"              # Modern ls replacement
+install_brew_formula "zoxide"           # Smart cd
+install_brew_formula "bat"              # Better cat
+install_brew_formula "ripgrep"          # Better grep
+install_brew_formula "fd"               # Better find
+install_brew_formula "fzf"              # Fuzzy finder
 
 # System monitoring and utilities
 echo "📦 Installing system utilities..."
-brew install btop             # System monitor
-brew install fastfetch        # System info
-brew install yazi             # Terminal file manager
-brew install peco             # Interactive filter
+install_brew_formula "btop"             # System monitor
+install_brew_formula "fastfetch"        # System info
+install_brew_formula "yazi"             # Terminal file manager
+install_brew_formula "peco"             # Interactive filter
 
 # Task management
 echo "📦 Installing task management tools..."
-brew install task      # Task management
-brew install taskwarrior-tui  # Task TUI
-brew install timewarrior      # Time tracking
+install_brew_formula "task"      # Task management
+install_brew_formula "taskwarrior-tui"  # Task TUI
+install_brew_formula "timewarrior"      # Time tracking
 
 # Completions
 echo "📦 Installing completion tools..."
-brew install carapace         # Multi-shell completion generator
+install_brew_formula "carapace"         # Multi-shell completion generator
 
 # macOS-specific tools (only install on macOS)
 {{ if eq .chezmoi.os "darwin" -}}
 echo "📦 Installing macOS-specific tools..."
-brew install --cask ghostty    # Terminal emulator
+install_brew_cask "ghostty"    # Terminal emulator
 brew tap FelixKratz/formulae
-brew install sketchybar        # Status bar
-brew install skhd              # Hotkey daemon
-brew install yabai             # Window manager
+install_brew_formula "sketchybar"        # Status bar
+install_brew_formula "skhd"              # Hotkey daemon
+install_brew_formula "yabai"             # Window manager
 
 # Fonts
 echo "📦 Installing fonts..."
-brew install --cask font-monaspace  # Monaspace font family (includes Monaspace Neon)
+install_brew_cask "font-monaspace"  # Monaspace font family (includes Monaspace Neon)
 
 # Optional: macOS applications
 echo "📦 Installing optional macOS applications..."
@@ -87,11 +110,11 @@ echo "📦 Installing optional macOS applications..."
 
 # Development tools (managed separately but nice to have)
 echo "📦 Installing additional development tools..."
-brew install git              # Version control
-brew install gh               # GitHub CLI
-brew install jq               # JSON processor
-brew install curl             # HTTP client
-brew install wget             # File downloader
+install_brew_formula "git"              # Version control
+install_brew_formula "gh"               # GitHub CLI
+install_brew_formula "jq"               # JSON processor
+install_brew_formula "curl"             # HTTP client
+install_brew_formula "wget"             # File downloader
 
 # Rust (cargo) - often better installed via rustup, but available in brew
 echo "📦 Checking for Rust installation..."
@@ -104,8 +127,8 @@ fi
 
 # Docker completions and tools
 echo "📦 Installing container tools..."
-brew install docker           # Docker CLI
-brew install docker-compose   # Docker Compose
+install_brew_formula "docker"           # Docker CLI
+install_brew_formula "docker-compose"   # Docker Compose
 
 # Cleanup
 echo "🧹 Cleaning up..."
