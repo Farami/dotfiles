@@ -1,7 +1,7 @@
 theme = Catppuccin Mocha
 font-feature = +liga
 font-family = "Monaspace Neon"
-font-size = 15
+font-size = 13
 
 mouse-hide-while-typing = true
 
