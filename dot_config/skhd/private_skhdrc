@@ -146,7 +146,3 @@ alt - p : yabai -m window --grid 7:5:4:0:1:1
 # change layout of desktop
 ctrl + alt - z : yabai -m space --layout bsp
 ctrl + alt - x : yabai -m space --layout float
-
-# ultrawide resize
-ctrl + alt - t : ~/.config/yabai/resize_ultrawide/resize_window.py --toggle_manage_space
-shift + cmd - t : ~/.config/yabai/resize_ultrawide/resize_window.py --toggle_manage
