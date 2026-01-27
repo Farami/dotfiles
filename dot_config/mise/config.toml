@@ -3,6 +3,7 @@ bun = "latest"
 java = "openjdk-21"
 node = "latest"
 python = "latest"
+rust = "latest"
 yarn = "latest"
 
 [settings]
