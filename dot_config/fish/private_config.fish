@@ -91,3 +91,14 @@ end
 # Added by LM Studio CLI (lms)
 set -gx PATH $PATH /Users/work/.lmstudio/bin
 # End of LM Studio CLI section
+eval (~/.local/try.rb init ~/src/tries | string collect)
+
+#Disable fancy prompts when Cursor Agent runs 
+if set -q CURSOR_AGENT
+    function fish_prompt
+        echo (prompt_pwd)' $ '
+    end
+end
+
+# Added by Antigravity
+fish_add_path /Users/work/.antigravity/antigravity/bin

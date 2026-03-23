@@ -41,6 +41,7 @@ yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="^Calculator$" manage=off
 yabai -m rule --add app="^Bartender$" manage=off
 yabai -m rule --add app="^1Password$" manage=off
+yabai -m rule --add app="^Proton Pass$" manage=off
 yabai -m rule --add app="^CleanMyMac" manage=off
 yabai -m rule --add app="^Finder$" manage=off
 yabai -m rule --add app="^Archiver$" manage=off
@@ -50,6 +51,7 @@ yabai -m rule --add title="^Microsoft Teams Notification$" manage=off
 yabai -m rule --add app="^Marta$" manage=off
 yabai -m rule --add app="^Simulator$" manage=off
 yabai -m rule --add app="^qemu-system-aarch64$" manage=off
+yabai -m rule --add app="^GitKraken$" manage=off
 
 # broken...
 yabai -m rule --add app="^TablePlus$" manage=off

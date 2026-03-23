@@ -1,4 +1,13 @@
 function fish_prompt
+    # Use simple prompt when Cursor Agent is running for better compatibility
+    if set -q CURSOR_AGENT
+        set_color green
+        echo -n (prompt_pwd)
+        set_color normal
+        echo -n ' $ '
+        return
+    end
+
     # This prompt shows:
     # - green lines if the last return command is OK, red otherwise
     # - your user name, in red if root or yellow otherwise
