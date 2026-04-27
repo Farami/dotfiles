@@ -59,6 +59,11 @@ if test -f $LOCAL_CONFIG
     source $LOCAL_CONFIG
 end
 
+set SECRETS_FILE (dirname (status --current-filename))/secrets.fish
+if test -f $SECRETS_FILE
+    source $SECRETS_FILE
+end
+
 # pnpm
 set -gx PNPM_HOME /Users/work/Library/pnpm
 set -gx PATH "$PNPM_HOME" $PATH
