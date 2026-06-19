@@ -1,5 +1,10 @@
 # Unset the default fish greeting text which messes up Zellij
 function fish_greeting
+    if command -v fastfetch >/dev/null 2>&1
+        # Small delay to ensure terminal is fully sized
+        sleep 0.1
+        command fastfetch --logo-width 20 --logo mac
+    end
 end
 
 # Check if we're in an interactive shell

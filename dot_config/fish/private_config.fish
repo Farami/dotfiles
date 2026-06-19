@@ -25,12 +25,8 @@ alias cursor-cli cursor-agent
 
 set -gx EDITOR nvim
 
-set -gx PATH bin $PATH
 set -gx PATH ~/bin $PATH
 set -gx PATH ~/.local/bin $PATH
-
-# NodeJS
-set -gx PATH node_modules/.bin $PATH
 
 # Go
 set -g GOPATH $HOME/go
@@ -57,11 +53,6 @@ end
 set LOCAL_CONFIG (dirname (status --current-filename))/config-local.fish
 if test -f $LOCAL_CONFIG
     source $LOCAL_CONFIG
-end
-
-set SECRETS_FILE (dirname (status --current-filename))/secrets.fish
-if test -f $SECRETS_FILE
-    source $SECRETS_FILE
 end
 
 # pnpm
@@ -98,12 +89,7 @@ set -gx PATH $PATH /Users/work/.lmstudio/bin
 # End of LM Studio CLI section
 eval (~/.local/try.rb init ~/src/tries | string collect)
 
-#Disable fancy prompts when Cursor Agent runs 
-if set -q CURSOR_AGENT
-    function fish_prompt
-        echo (prompt_pwd)' $ '
-    end
-end
+# Added by LM Studio CLI (lms)
+set -gx PATH $PATH /Users/farami/.lmstudio/bin
+# End of LM Studio CLI section
 
-# Added by Antigravity
-fish_add_path /Users/work/.antigravity/antigravity/bin
