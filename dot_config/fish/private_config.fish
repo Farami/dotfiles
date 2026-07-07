@@ -62,13 +62,6 @@ set -gx PATH "$PNPM_HOME" $PATH
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 set --export --prepend PATH "/Users/work/.rd/bin"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-if test -f /Users/farami/miniconda3/bin/conda
-    eval /Users/farami/miniconda3/bin/conda "shell.fish" hook $argv | source
-end
-# <<< conda initialize <<<
-
 # Java - using mise
 
 # Rust
@@ -87,9 +80,5 @@ end
 # Added by LM Studio CLI (lms)
 set -gx PATH $PATH /Users/work/.lmstudio/bin
 # End of LM Studio CLI section
-eval (~/.local/try.rb init ~/src/tries | string collect)
-
-# Added by LM Studio CLI (lms)
-set -gx PATH $PATH /Users/farami/.lmstudio/bin
-# End of LM Studio CLI section
+eval (env SHELL=(status fish-path) ~/.local/try.rb init ~/src/tries | string collect)
 

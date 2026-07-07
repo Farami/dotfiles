@@ -19,7 +19,6 @@ if status is-interactive
         eval (zellij setup --generate-auto-start fish | string collect)
     end
 
-    set -Ux CARAPACE_BRIDGES 'zsh,fish,bash,inshellisense' # optional
     atuin init fish | source
     starship init fish | source
     carapace _carapace | source
