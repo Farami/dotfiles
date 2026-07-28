@@ -1,6 +1,10 @@
 # Load scripting addition
-yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+yabai -m signal --add event=dock_did_restart label="reload_sa" action="sudo yabai --load-sa && yabai -m config focus_follows_mouse autofocus"
 sudo yabai --load-sa
+
+# focus_follows_mouse gets reset whenever the SA reloads (wake/display change) — reapply it
+yabai -m signal --add event=system_woke label="ffm_woke" action="yabai -m config focus_follows_mouse autofocus"
+yabai -m signal --add event=display_changed label="ffm_display" action="yabai -m config focus_follows_mouse autofocus"
 
 # Window config
 yabai -m config window_zoom_persist off
@@ -14,7 +18,7 @@ yabai -m config window_animation_easing ease_out_quint
 
 # Mouse config
 yabai -m config mouse_follows_focus off
-yabai -m config focus_follows_mouse off
+yabai -m config focus_follows_mouse autofocus
 yabai -m config mouse_modifier alt
 yabai -m config mouse_action1 move
 yabai -m config mouse_action2 resize

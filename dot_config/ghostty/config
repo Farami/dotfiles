@@ -1,8 +1,9 @@
 theme = Catppuccin Mocha
 
 # Font settings
-font-family = "Monaspace Neon"
-font-size = 15
+#font-family = "Monaspace Neon"
+font-family = "MonoLisa Nerd Font"
+font-size = 14
 
 font-feature = +liga
 font-feature = +calt
@@ -11,11 +12,11 @@ font-feature = +dlig
 font-thicken = true
 font-thicken-strength = 60
 
-adjust-cell-height = 5%
-adjust-box-thickness = 10%
-adjust-cursor-thickness = 10%
+#adjust-cell-height = 5%
+#adjust-box-thickness = 10%
+#adjust-cursor-thickness = 10%
 
-window-colorspace = display-p3
+#window-colorspace = display-p3
 
 # Rest
 mouse-hide-while-typing = true

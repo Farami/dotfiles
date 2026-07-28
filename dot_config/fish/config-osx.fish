@@ -59,3 +59,5 @@ end
 
 alias tpa "cd ~/Sources/TrackPilotAdminN/TrackPilotAdminN/"
 alias tpw "cd ~/Sources/TrackPilotN/"
+
+alias claudep "CLAUDE_CONFIG_DIR=~/.claude-private claude"
