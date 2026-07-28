@@ -1,2 +1,11 @@
 .config/nvim/lazy-lock.json
 .config/fish/secrets.fish
+
+# Machine-generated state, rewritten by the tools themselves
+.config/fish/fish_variables
+
+# Editor/tool backups; git history already covers this
+.config/zellij/*.bak
+.config/zellij/*.bak.*
+.config/zellij/layouts/*_bak.kdl
+.config/zellij/layouts/*.bak.*
