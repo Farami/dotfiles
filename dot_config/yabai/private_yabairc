@@ -35,7 +35,6 @@ yabai -m config bottom_padding 8
 yabai -m config left_padding 8
 yabai -m config right_padding 8
 yabai -m config window_gap 10
-# yabai -m config external_bar all:40:0
 
 # bsp, stack or float
 yabai -m config layout bsp
@@ -66,10 +65,6 @@ yabai -m rule --add app="^Path of Exile 2$" manage=off
 
 # turn off for outlooks reminder notification window
 #yabai -m rule --add app="^\d+? Reminders$" manage=off
-
-# Sketchybar signals
-yabai -m signal --add event=window_created label="sketchybar_window_update" action="sketchybar -m --trigger window_change &> /dev/null"
-yabai -m signal --add event=window_destroyed label="sketchybar_window_update" action="sketchybar -m --trigger window_change &> /dev/null"
 
 # Start borders
 borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0 &
