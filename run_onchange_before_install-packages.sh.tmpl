@@ -93,13 +93,18 @@ install_brew_formula "carapace"         # Multi-shell completion generator
 echo "📦 Installing macOS-specific tools..."
 install_brew_cask "ghostty"    # Terminal emulator
 brew tap FelixKratz/formulae
-install_brew_formula "sketchybar"        # Status bar
+install_brew_formula "borders"           # Active window border highlight
 install_brew_formula "skhd"              # Hotkey daemon
 install_brew_formula "yabai"             # Window manager
+install_brew_formula "herdr"             # Terminal workspace manager (default multiplexer)
+install_brew_formula "media-control"     # Now-playing control
+install_brew_formula "switchaudio-osx"   # Audio output switching
 
 # Fonts
 echo "📦 Installing fonts..."
 install_brew_cask "font-monaspace"  # Monaspace font family (includes Monaspace Neon)
+# MonoLisa Nerd Font is what ghostty/config actually uses. It is a commercial font
+# with no brew formula, so install it by hand from monolisa.dev after bootstrap.
 
 # Optional: macOS applications
 echo "📦 Installing optional macOS applications..."
