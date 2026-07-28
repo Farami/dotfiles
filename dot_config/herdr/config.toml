@@ -1,0 +1,35 @@
+onboarding = false
+# Keys mirror the zellij setup in ~/.config/zellij/config.kdl:
+# locked-by-default with ctrl+g as the mode key, alt+hjkl and alt+arrows for
+# pane focus.
+
+[theme]
+name = "catppuccin"
+
+[terminal]
+default_shell = "fish"
+
+[keys]
+prefix = "ctrl+g"
+
+# Bound directly rather than under the prefix, matching zellij's
+# shared_among "normal" "locked" block. This replaces the prefix+hjkl
+# defaults; navigate mode (prefix+g) still accepts hjkl.
+focus_pane_left = ["alt+h", "alt+left"]
+focus_pane_down = ["alt+j", "alt+down"]
+focus_pane_up = ["alt+k", "alt+up"]
+focus_pane_right = ["alt+l", "alt+right"]
+
+# zellij's Alt n picks the split direction by pane shape; herdr needs one chosen.
+split_vertical = "alt+n"
+
+[[keys.command]]
+key = "prefix+d"
+type = "plugin_action"
+command = "local.last-turn-diff.show"
+description = "diff the agent's last turn"
+
+[ui]
+agent_panel_sort = "spaces"
+copy_on_select = true
+show_agent_labels_on_pane_borders = true

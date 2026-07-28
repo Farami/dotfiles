@@ -144,17 +144,15 @@ shift + alt - b : yabai -m window --toggle border
 alt - e : yabai -m window --toggle split
 
 # float / unfloat window and center on screen
-shift + alt - t : yabai -m window --toggle float;\
-          yabai -m window --grid 6:4:1:1:2:2
+shift + alt - t : ~/.config/yabai/float-grid.sh 6:4:1:1:2:2
 
-alt - t : yabai -m window --toggle float;\
-          yabai -m window --grid 22:20:1:1:18:18
+alt - t : ~/.config/yabai/float-grid.sh 22:20:1:1:18:18
 
 # toggle sticky
 # alt - s : yabai -m window --toggle sticky
 
 # toggle sticky, float and resize to picture-in-picture size
-alt - p : yabai -m window --grid 7:5:4:0:1:1
+alt - p : ~/.config/yabai/float-grid.sh 7:5:4:0:1:1
 
 # change layout of desktop
 ctrl + alt - z : yabai -m space --layout bsp
