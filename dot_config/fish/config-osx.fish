@@ -13,10 +13,20 @@ if status is-interactive
     # At this point, specify the Zellij config dir, so we can launch it manually if we want to
     export ZELLIJ_CONFIG_DIR=$HOME/.config/zellij
 
+    # Which multiplexer starts automatically in Ghostty: herdr or zellij
+    set -l auto_multiplexer herdr
+
     # Check if our Terminal emulator is Ghostty
     if [ "$TERM" = xterm-ghostty ]
-        # Launch zellij
-        eval (zellij setup --generate-auto-start fish | string collect)
+        switch $auto_multiplexer
+            case herdr
+                # HERDR_ENV is set inside a herdr pane, so this won't nest
+                if not set -q HERDR_ENV
+                    herdr
+                end
+            case zellij
+                eval (zellij setup --generate-auto-start fish | string collect)
+        end
     end
 
     atuin init fish | source
